@@ -1,0 +1,12 @@
+HTML: NOT DONE
+    D3 Visual Implementation: NOT DONE
+    CSS: NOT DONE
+Popular news scraper: NOT DONE
+website title scraper: DONE
+    Website title scraper was easy to implement
+    that being said, the robot.txt dynamic checker
+    was difficult to implement regarding best
+    practices, which I was unfamiliar with prior.
+CSV Implemented: DONE
+    Keeps track of titles used for daily check,
+    showing sources to the user for the final result.
