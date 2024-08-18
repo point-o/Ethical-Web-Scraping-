@@ -10,22 +10,13 @@ const csvWriter = createObjectCsvWriter({
   ]
 });
 
+
 //example urls; put any in string form to be processed
 const urls = [
-  "https://www.google.com",
   "https://www.wikipedia.org",
-  "https://www.reddit.com",
-  "https://www.github.com",
-  "https://www.stackoverflow.com",
-  "https://www.medium.com",
   "https://www.bbc.com",
   "https://www.cnn.com",
   "https://www.nytimes.com",
-  "https://www.twitter.com",
-  "https://www.facebook.com",
-  "https://www.linkedin.com",
-  "https://www.instagram.com",
-  "https://www.pinterest.com"
 ]
 
 // Accessing and reading the robots.txt file is a key part of ethically scraping data.
@@ -94,12 +85,15 @@ async function scrapeTitles() {
 
         //load and parse page content to extract titles
         const $ = load(data);
-        $("title").each((i, element) => {
-          const titleText = $(element).text().trim()
-          if (titleText) {
-            titles.push({ title: titleText })
+        $("p").each((i, element) => {
+          const paragraphText = $(element).text().trim()
+          if (paragraphText) {
+            titles.push({ Titles: paragraphText }) // Change 'Titles' to 'Paragraphs'
+            console.log(`${baseUrl} has been recorded`) // Log the website name
           }
         })
+        
+        
         
         //set a delay between each site request
         await new Promise(resolve => setTimeout(resolve, crawlDelay + 500))
